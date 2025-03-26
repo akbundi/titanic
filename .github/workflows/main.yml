@@ -23,8 +23,8 @@ jobs:
       - name: Authenticate with Preswald
 
 
-        run: preswald auth --api-key "${{ secrets.PRESWALD_API_KEY }}"
+        run: export PRESWALD_API_KEY="${{ secrets.PRESWALD_API_KEY }}
       
 
       - name: Deploy to Preswald
-        run: preswald deploy
+        run: preswald deploy --target structured
