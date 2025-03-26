@@ -21,7 +21,40 @@ jobs:
         run: pip install preswald
 
       - name: Authenticate with Preswald
-        run: echo "${{ secrets.PRESWALD_API_KEY }}" | preswald login --api-key
+        run: name: Deploy to Preswald
+
+on:
+  push:
+    branches:
+      - main  # Change this if your main branch has a different name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Preswald CLI
+        run: pip install preswald
+
+      - name: Set Preswald API Key
+
+
+        run: export PRESWALD_API_KEY="${{ secrets.PRESWALD_API_KEY }}"
+
+      - name: Build the application
+        run: preswald build
+
+      - name: Deploy to Preswald
+        run: preswald deploy
+
+
 
       - name: Build the application
         run: preswald build
