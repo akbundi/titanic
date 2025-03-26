@@ -29,4 +29,4 @@ jobs:
       
 
       - name: Deploy to Preswald
-        run: preswald deploy --target preswald
+        run: preswald deploy --target structured labs
