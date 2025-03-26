@@ -29,4 +29,4 @@ jobs:
       
 
       - name: Deploy to Preswald
-        run: preswald deploy --target structured
+        run: preswald deploy --target structured --github akbundi --api-key prswld-67131567-23e0-41f6-90d5-4ee1706a1c68
