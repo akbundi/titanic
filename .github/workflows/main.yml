@@ -20,8 +20,10 @@ jobs:
       - name: Install Preswald CLI
         run: pip install preswald
 
-      - name: Authenticate with Preswald
-        run: echo "${{ secrets.PRESWALD_API_KEY }}" | preswald login --api-key
+      - name: Set Preswald API Key
+
+
+        run: export PRESWALD_API_KEY="${{ secrets.PRESWALD_API_KEY }}"
 
       - name: Build the application
         run: preswald build
