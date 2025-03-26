@@ -25,8 +25,7 @@ jobs:
 
         run: export PRESWALD_API_KEY="${{ secrets.PRESWALD_API_KEY }}"
 
-      - name: Build the application
-        run: preswald build
+      
 
       - name: Deploy to Preswald
         run: preswald deploy
